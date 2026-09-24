@@ -20,7 +20,19 @@ jobs:
           java-version: '25'
 
       - name: Compile Java
-        run: javac src/Main.java
+        run: javac -d out src/Main.java
 
-      - name: Run Java
-        run: java -cp src Main
+      - name: Run compiled Java
+        run: java -cp out Main
+
+      - name: Create JAR
+        run: jar --create --file hello-java.jar --main-class Main -C out .
+
+      - name: Run JAR
+        run: java -jar hello-java.jar
+
+      - name: Upload JAR artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: hello-java
+          path: hello-java.jar
