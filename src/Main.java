@@ -4,10 +4,10 @@ public class Main {
 
         System.out.println("Hello from Java!");
 
-        for (int i = 1; i <= 5; i++) {
+        for (int i = 1; i <= 10; i++) {
             System.out.print(i);
 
-            if (i < 5) {
+            if (i < 10) {
                 System.out.print(", ");
             }
         }
