@@ -1,9 +1,7 @@
-FROM eclipse-temurin:25-jdk
+FROM eclipse-temurin:25-jre
 
 WORKDIR /app
 
-COPY src/DockerHelloWorld.java .
+COPY hello-java.jar app.jar
 
-RUN javac DockerHelloWorld.java
-
-CMD ["java", "DockerHelloWorld"]
+CMD ["java", "-jar", "app.jar"]

@@ -31,6 +31,12 @@ jobs:
       - name: Run JAR
         run: java -jar hello-java.jar
 
+      - name: Build Docker image
+        run: docker build -t hello-java .
+
+      - name: Run Docker container
+        run: docker run --rm hello-java
+
       - name: Upload JAR artifact
         uses: actions/upload-artifact@v4
         with:
